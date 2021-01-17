@@ -7,7 +7,13 @@
       </li>
       <li class="nav-item d-none d-sm-inline-block">
         <a href="#" class="nav-link">
-          @if ($user->role == 2)<span class="rigth badge badge-success">ADMIN</span> @elseif($user->role == 1) <span class="rigth badge badge-primary">COMPTABLE</span> @else <span class="rigth badge badge-secondary">CAISSIER</span> @endif</td>
+          @if (session('auth_role') == 2)
+            <span class="rigth badge badge-success">ADMIN</span>
+          @elseif(session('auth_role') == 1)
+            <span class="rigth badge badge-primary">COMPTABLE</span>
+          @else
+            <span class="rigth badge badge-secondary">CAISSIER</span>
+          @endif</td>
         </a>
       </li>
       {{-- <li class="nav-item d-none d-sm-inline-block">

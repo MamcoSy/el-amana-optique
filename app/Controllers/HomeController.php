@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\User;
 use LiteFramework\View\View;
 use LiteFramework\Http\Request;
 use LiteFramework\Globals\Session;
@@ -39,6 +40,7 @@ class HomeController
             Session::set('auth_id', $user->id);
             Session::set('auth_role', $user->role);
             Session::set('auth_full_name', $user->first_name . ' ' . $user->last_name);
+            Session::set('auth_last_time_see', $user->last_time_see);
 
             return redirect(url('/admin-panel'));
         }
@@ -47,6 +49,7 @@ class HomeController
 
     public function logout()
     {
+        User::update(session('auth_id'), ['last_time_see' => date('d / m  / Y à H:i:s')]);
         Session::destroy();
 
         return redirect(url('/'));

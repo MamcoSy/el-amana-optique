@@ -13,5 +13,6 @@ Router::middleware('Auth', function () {
         Router::get('/', 'AdminController@index');
         Router::get('/users', 'UsersController@index');
         Router::get('/users/delete/{id}', 'UsersController@delete');
+        Router::post('/users/edit/{id}', 'UsersController@edit');
     });
 });

@@ -23,4 +23,32 @@ class UsersController
 
         return redirect(previous());
     }
+
+    public function edit(int $id)
+    {
+        if (empty(request('password'))) {
+            User::update($id, [
+                'first_name' => request('first_name'),
+                'last_name'  => request('last_name'),
+                'username'   => request('username'),
+                'role'       => request('role'),
+            ]);
+        } else {
+            User::update($id, [
+                'first_name' => request('first_name'),
+                'last_name'  => request('last_name'),
+                'username'   => request('username'),
+                'password'   => sha1(request('password')),
+                'role'       => request('role'),
+            ]);
+        }
+        Session::set('success', true);
+        if (session('auth_id') == $id) {
+            Session::destroy();
+
+            return redirect(url('/'));
+        }
+
+        return redirect(previous());
+    }
 }
