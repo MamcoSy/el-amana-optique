@@ -19,6 +19,7 @@
                 <th>Date</th>
                 <th></th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -29,7 +30,7 @@
                   <td>{{$prescription->left_eye}}</td>
                   <td>{{$prescription->right_eye}}</td>
                   <td>{{$prescription->created_at}}</td>
-                  <td>
+                  <td> <a href="#" class="btn btn-primary" data-toggle="modal" data-target="#edit-modal-{{$prescription->id}}"><i class="fas fa-print"></i></a></td>
                     {{-- @if ($prescription->role == 2)<span class="rigth badge badge-success">ADMIN</span> @elseif($prescription->role == 1) <span class="rigth badge badge-primary">COMPTABLE</span> @else <span class="rigth badge badge-secondary">CAISSIER</span> @endif</td> --}}
                   <td> <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal-{{$prescription->id}}"><i class="fas fa-edit"></i></a></td>
                   <td> <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash"></i></a></td>

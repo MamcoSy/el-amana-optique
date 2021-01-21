@@ -33,14 +33,13 @@ class UsersController
                 'first_name'    => request('first_name'),
                 'last_name'     => request('last_name'),
                 'username'      => request('username'),
-                'password'      => request('password'),
+                'password'      => sha1(request('password')),
                 'role'          => request('role'),
                 'last_time_see' => '',
             ]);
             Session::set('success', true);
 
             return redirect(url('/admin-panel/users'));
-
         }
 
         return render('admin.users.add');

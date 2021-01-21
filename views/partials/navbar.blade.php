@@ -29,7 +29,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" role="button" href="{{url('/logout')}}">
+        <a class="nav-link" onclick="return confirm('Voulez vous vraiment vous déconnecté ?')" role="button" href="{{url('/logout')}}">
           <i class="fa fa-power-off"></i>
         </a>
       </li>
