@@ -3,7 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\User;
+use LiteFramework\Http\Request;
 use LiteFramework\Globals\Session;
+use LiteFramework\Validation\Validate;
 
 class UsersController
 {
@@ -12,8 +14,36 @@ class UsersController
         $title = 'Gestion des utilisateurs';
         $users = User::all();
 
-        return render('admin.users', compact('users', 'title'));
+        return render('admin.users.users', compact('users', 'title'));
 
+    }
+
+    public function add()
+    {
+        if (Request::method() == 'POST') {
+            Validate::validate([
+                'first_name'       => 'required|min:2|max:195',
+                'last_name'        => 'required|min:2|max:195',
+                'username'         => 'required|min:4|max:195',
+                'password'         => 'required|min:4',
+                'confirm_password' => 'required|same:password',
+            ]);
+
+            User::insert([
+                'first_name'    => request('first_name'),
+                'last_name'     => request('last_name'),
+                'username'      => request('username'),
+                'password'      => request('password'),
+                'role'          => request('role'),
+                'last_time_see' => '',
+            ]);
+            Session::set('success', true);
+
+            return redirect(url('/admin-panel/users'));
+
+        }
+
+        return render('admin.users.add');
     }
 
     public function delete(int $id)

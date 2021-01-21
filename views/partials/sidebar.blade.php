@@ -48,7 +48,7 @@
           @endif
           @if (session('auth_role') == 2)
             <li class="nav-item">
-              <a href="{{ url('/admin-panel/users') }}" class="nav-link">
+              <a href="{{ url('/admin-panel/prescriptions') }}" class="nav-link">
                 <i class="nav-icon fas fa-file-invoice"></i>
                 <p>
                   Gestion des ordonances

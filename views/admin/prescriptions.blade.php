@@ -5,7 +5,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-          <button class="btn btn-primary"><i class="fas fa-plus"></i></button>
+          <a href="{{url('/admin-panel/prescriptions/add')}}" class="btn btn-primary"><i class="fas fa-plus"></i></a>
         </div>
         <!-- /.card-header -->
         <div class="card-body">
@@ -13,30 +13,31 @@
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Uom d'utilisateur</th>
-                <th>Role</th>
+                <th>Nom du client</th>
+                <th>OG</th>
+                <th>OD</th>
+                <th>Date</th>
                 <th></th>
                 <th></th>
               </tr>
             </thead>
             <tbody>
-              @foreach ($users as $user)
+              @foreach ($prescriptions as $prescription)
                 <tr>
-                  <td>{{$user->id}}</td>
-                  <td>{{$user->first_name}}</td>
-                  <td>{{$user->last_name}}</td>
-                  <td>{{$user->username}}</td>
+                  <td>{{$prescription->id}}</td>
+                  <td>{{$prescription->client_name}}</td>
+                  <td>{{$prescription->left_eye}}</td>
+                  <td>{{$prescription->right_eye}}</td>
+                  <td>{{$prescription->created_at}}</td>
                   <td>
-                    @if ($user->role == 2)<span class="rigth badge badge-success">ADMIN</span> @elseif($user->role == 1) <span class="rigth badge badge-primary">COMPTABLE</span> @else <span class="rigth badge badge-secondary">CAISSIER</span> @endif</td>
-                  <td> <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal-{{$user->id}}"><i class="fas fa-edit"></i></a></td>
+                    {{-- @if ($prescription->role == 2)<span class="rigth badge badge-success">ADMIN</span> @elseif($prescription->role == 1) <span class="rigth badge badge-primary">COMPTABLE</span> @else <span class="rigth badge badge-secondary">CAISSIER</span> @endif</td> --}}
+                  <td> <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal-{{$prescription->id}}"><i class="fas fa-edit"></i></a></td>
                   <td> <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal"><i class="fas fa-trash"></i></a></td>
-                  <div class="modal fade" id="delete-modal">
+                  {{-- <div class="modal fade" id="delete-modal">
                     <div class="modal-dialog">
                       <div class="modal-content">
                         <div class="modal-header">
-                          <h4 class="modal-title">Supprimer {{$user->username}}</h4>
+                          <h4 class="modal-title">Supprimer {{$prescription->id}}</h4>
                           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                           </button>
@@ -46,14 +47,14 @@
                         </div>
                         <div class="modal-footer justify-content-between">
                           <button type="button" class="btn btn-secondary" data-dismiss="modal">Annuler</button>
-                          <a href="{{url('/admin-panel/users/delete/'.$user->id)}}"  class="btn btn-danger" data-confirme="">Supprimer</a>
+                          <a href="{{url('/admin-panel/prescriptions/delete/'.$prescription->id)}}"  class="btn btn-danger" data-confirme="">Supprimer</a>
                         </div>
                       </div>
                       <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
                   </div>
-                  <div class="modal fade" id="edit-modal-{{$user->id}}">
+                  <div class="modal fade" id="edit-modal-{{$prescription->id}}">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
                         <div class="modal-header">
@@ -63,24 +64,24 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                          <form class="form-horizontal" action="{{url("/admin-panel/users/edit/".$user->id)}}" method="POST">
+                          <form class="form-horizontal" action="{{url("/admin-panel/prescriptions/edit/".$prescription->id)}}" method="POST">
                             <div class="card-body">
                               <div class="form-group row">
-                                <label for="first_name" class="col-sm-2 col-form-label">Prénom</label>
+                                <label for="client_name" class="col-sm-2 col-form-label">Prénom</label>
                                 <div class="col-sm-10">
-                                  <input name="first_name" type="text" value="{{$user->first_name}}" class="form-control" id="first_name" placeholder="Prénom" >
+                                  <input name="client_name" type="text" value="{{$prescription->client_name}}" class="form-control" id="client_name" placeholder="Prénom" >
                                 </div>
                               </div>
                               <div class="form-group row">
                                 <label for="last_name" class="col-sm-2 col-form-label">Nom</label>
                                 <div class="col-sm-10">
-                                  <input name="last_name" type="text" value="{{$user->last_name}}" class="form-control" id="first_name" placeholder="Prénom" >
+                                  <input name="last_name" type="text" value="{{$prescription->last_name}}" class="form-control" id="client_name" placeholder="Prénom" >
                                 </div>
                               </div>
                               <div class="form-group row">
-                                <label for="username" class="col-sm-2 col-form-label">Nom d'utilisation</label>
+                                <label for="prescriptionname" class="col-sm-2 col-form-label">Nom d'utilisation</label>
                                 <div class="col-sm-10">
-                                  <input name="username" type="text" value="{{$user->username}}" class="form-control" id="first_name" placeholder="Prénom" >
+                                  <input name="prescriptionname" type="text" value="{{$prescription->prescriptionname}}" class="form-control" id="client_name" placeholder="Prénom" >
                                 </div>
                               </div>
                               <div class="form-group row">
@@ -92,9 +93,9 @@
                               <div class="form-group">
                                 <label for="role">Role</label>
                                 <select name="role" class="custom-select rounded-0" id="role">
-                                  <option value="2" @if($user->role == 2) selected @endif >ADMIN</option>
-                                  <option value="1" @if($user->role == 1) selected @endif >COMPTABLE</option>
-                                  <option value="0" @if($user->role == 0) selected @endif >CAISSIER</option>
+                                  <option value="2" @if($prescription->role == 2) selected @endif >ADMIN</option>
+                                  <option value="1" @if($prescription->role == 1) selected @endif >COMPTABLE</option>
+                                  <option value="0" @if($prescription->role == 0) selected @endif >CAISSIER</option>
                                 </select>
                               </div>
                             </div>
@@ -109,21 +110,10 @@
                       <!-- /.modal-content -->
                     </div>
                     <!-- /.modal-dialog -->
-                  </div>
+                  </div> --}}
                 </tr>
               @endforeach
             </tbody>
-            <tfoot>
-              <tr>
-                <th>ID</th>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>Uom d'utilisateur</th>
-                <th>Role</th>
-                <th></th>
-                <th></th>
-              </tr>
-            </tfoot>
           </table>
         </div>
         <!-- /.card-body -->
