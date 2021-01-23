@@ -28,8 +28,9 @@ Router::middleware('Auth', function () {
         Router::group('/prescriptions', function () {
             Router::get('/', 'PrescriptionsController@index');
             Router::get('/delete/{id}', 'PrescriptionsController@delete');
+            Router::get('/view/{id}', 'PrescriptionsController@view');
             Router::post('/edit/{id}', 'PrescriptionsController@edit');
-            Router::get('/add', 'PrescriptionsController@add');
+            Router::any('/add', 'PrescriptionsController@add');
         });
 
         // invoces management

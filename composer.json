@@ -23,7 +23,8 @@
   "prefer-stable": true,
   "require": {
     "php": "^7.1",
-    "mamadou-aly-sy/framework": "^1.0.0"
+    "mamadou-aly-sy/framework": "^1.0.0",
+    "spipu/html2pdf": "^5.2"
   },
   "autoload": {
     "psr-4": {
