@@ -9,10 +9,11 @@ class AdminController
 {
     public function index()
     {
-        $title     = "Panneau d'administration";
-        $userCount = Database::table('users')->select()->count();
+        $title               = "Panneau d'administration";
+        $userCount           = Database::table('users')->select()->count();
+        $prescpriptionsCount = Database::table('prescriptions')->select()->count();
 
-        return render('admin.dashboard', compact('userCount', 'title'));
+        return render('admin.dashboard', compact('userCount', 'title', 'prescpriptionsCount'));
     }
 
     public function users()

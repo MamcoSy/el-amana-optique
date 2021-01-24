@@ -20,14 +20,13 @@
         <!-- small box -->
         <div class="small-box bg-success">
             <div class="inner">
-                <h3>0<sup style="font-size: 20px"></sup></h3>
-
+                <h3>{{ $prescpriptionsCount }}</h3>
                 <p>Ordonance(s)</p>
             </div>
             <div class="icon">
                 <i class="nav-icon fas fa-file-invoice"></i>
             </div>
-            <a href="#" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="{{url('/admin-panel/prescriptions')}}" class="small-box-footer">Plus d'infos <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 

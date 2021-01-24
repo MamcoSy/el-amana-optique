@@ -35,7 +35,7 @@
             </div>
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="#">Panneau d'administration</a></li>
+                <li class="breadcrumb-item"><a href="{{url('/admin-panel')}}">Panneau d'administration</a></li>
                 <li class="breadcrumb-item active">{{$title === 'Panneau d\'administration' ? '' : $title}}</li>
               </ol>
             </div>
@@ -55,7 +55,7 @@
       <div class="float-right d-none d-sm-block">
         <b>Version</b> 1.0.0
       </div>
-      <strong>Copyright &copy; 2020-2021 <a href="https://adminlte.io">El Amana Optique</a>.</strong> Tous les droits sont réservés.
+      <strong>Copyright &copy; 2020-2021 <a href="#">El Amana Optique</a>.</strong> Tous les droits sont réservés.
     </footer>
 
     <!-- Control Sidebar -->

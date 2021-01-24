@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\User;
 use Spipu\Html2Pdf\Html2Pdf;
 use App\Models\Prescriptions;
 use LiteFramework\Http\Request;
@@ -56,27 +55,22 @@ class PrescriptionsController
     public function edit(int $id)
     {
         if (empty(request('password'))) {
-            Prescriptions::update($id, [
-                'first_name' => request('first_name'),
-                'last_name'  => request('last_name'),
-                'username'   => request('username'),
-                'role'       => request('role'),
-            ]);
-        } else {
-            User::update($id, [
-                'first_name' => request('first_name'),
-                'last_name'  => request('last_name'),
-                'username'   => request('username'),
-                'password'   => sha1(request('password')),
-                'role'       => request('role'),
+            Validate::validate([
+                'client_name'          => 'required|min:4|max:195',
+                'left_eye'             => 'required',
+                'right_eye'            => 'required',
+                'prescription_content' => 'required',
             ]);
         }
-        Session::set('success', true);
-        if (session('auth_id') == $id) {
-            Session::destroy();
 
-            return redirect(url('/'));
-        }
+        Prescriptions::update($id, [
+            'client_name' => request('client_name'),
+            'left_eye'    => request('left_eye'),
+            'right_eye'   => request('right_eye'),
+            'content'     => request('prescription_content'),
+        ]);
+
+        Session::set('success', true);
 
         return redirect(previous());
     }

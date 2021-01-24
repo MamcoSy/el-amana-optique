@@ -15,6 +15,7 @@ Router::middleware('Auth', function () {
     Router::group('/admin-panel', function () {
 
         Router::get('/', 'AdminController@index');
+        Router::get('/settings', 'ParamController@index');
 
         // users management
         Router::group('/users', function () {
