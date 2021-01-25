@@ -1,4 +1,7 @@
 @extends('layouts.DashboardLayout')
+@section('styles')
+    <link rel="stylesheet" href="{{asset('/admin/plugins/summernote/summernote-bs4.min.css')}}">
+@endsection
 @section('page-content')
 <div class="row">
     <div class="col-md-12">
@@ -6,8 +9,7 @@
             <div class="card-header">
                 <h3 class="card-title">Ajouter une ordonnance</h3>
             </div>
-            <!-- /.card-header -->
-            <!-- form start -->
+
             <form action="" method="POST">
                 <div class="card-body">
                     <div class="row">
@@ -46,9 +48,9 @@
                             @endif
                         </div>
                         <div class="col-md-12">
-                            <div class="form-group mb-3">
-                                <label>Ordonnance</label>
-                                <textarea name="prescription_content" class="form-control" rows="3" placeholder="Enter ...">{{$old['prescription_content']}}</textarea>
+                            <div class="form-group">
+                                <textarea name="prescription_content" id="compose-textarea" class="form-control" style="height: 300px">
+                                </textarea>
                             </div>
                             @if ($errors && $errors->has('prescription_content'))
                                 <p style="color: red">
@@ -67,4 +69,22 @@
         </div>
     </div>
 </div>
+@endsection
+@section('scripts')
+{{-- <script src="../../plugins/jquery/jquery.min.js"></script> --}}
+<!-- Bootstrap 4 -->
+{{-- <script src="{{asset('/admin/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script> --}}
+<!-- AdminLTE App -->
+{{-- <script src="{{asset('/admin/dist/js/adminlte.min.js')}}"></script> --}}
+<!-- Summernote -->
+<script src="{{asset('/admin/plugins/summernote/summernote-bs4.min.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('/admin/dist/js/demo.js')}}"></script>
+{{-- <script src=".{{asset('/admin/plugins/summernote/summernote-bs4.min.js')}}"></script> --}}
+<script>
+  $(function () {
+    //Add text editor
+    $('#compose-textarea').summernote()
+  })
+</script>
 @endsection

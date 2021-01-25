@@ -14,7 +14,7 @@ class UsersController
         $title = 'Gestion des utilisateurs';
         $users = User::all();
 
-        return render('admin.users.users', compact('users', 'title'));
+        return render('admin.users.list', compact('users', 'title'));
 
     }
 

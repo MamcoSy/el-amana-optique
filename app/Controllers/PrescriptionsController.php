@@ -15,7 +15,7 @@ class PrescriptionsController
         $title         = 'Gestion des ordonnances';
         $prescriptions = Prescriptions::all();
 
-        return render('admin.prescriptions', compact('prescriptions', 'title'));
+        return render('admin.prescriptions.list', compact('prescriptions', 'title'));
 
     }
 
@@ -41,7 +41,7 @@ class PrescriptionsController
             return redirect(url('/admin-panel/prescriptions'));
         }
 
-        return render('admin.add_prescription', compact('title'));
+        return render('admin.prescriptions.add', compact('title'));
     }
 
     public function delete(int $id)
@@ -77,6 +77,7 @@ class PrescriptionsController
 
     public function view(int $id)
     {
+        // the prescription variable is used in pdf/prescription.php to render data in the pdf
         $prescription = Prescriptions::find($id);
         $html2pdf     = new Html2Pdf();
         $html2pdf->setDefaultFont('aealarabiya');
