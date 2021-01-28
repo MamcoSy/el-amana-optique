@@ -10,7 +10,7 @@
         <div class="card-body">
             <div class="form-group mb-3">
                 <label for="first_name">Prénom</label>
-                <input name="first_name" type="text" value="{{$old['first_name']}}" class="form-control" id="first_name" placeholder="Prénom...">
+                <input name="first_name" type="text" value="{{$old['first_name'] ?? ''}}" class="form-control" id="first_name" placeholder="Prénom...">
             </div>
             @if ($errors && $errors->has('first_name'))
                 <p style="color: red">
@@ -19,7 +19,7 @@
             @endif
             <div class="form-group mb-3">
                 <label for="last_name">Nom</label>
-                <input name="last_name" type="text" value="{{$old['last_name']}}" class="form-control" id="last_name" placeholder="Nom...">
+                <input name="last_name" type="text" value="{{$old['last_name'] ?? ''}}" class="form-control" id="last_name" placeholder="Nom...">
             </div>
             @if ($errors && $errors->has('last_name'))
                 <p style="color: red">
@@ -28,7 +28,7 @@
             @endif
             <div class="form-group mb-3">
                 <label for="username">Nom d'utilisateur</label>
-                <input name="username" type="text" value="{{$old['username']}}" class="form-control" id="username" placeholder="Nom d'utilisateur...">
+                <input name="username" type="text" value="{{$old['username'] ?? ''}}" class="form-control" id="username" placeholder="Nom d'utilisateur...">
             </div>
             @if ($errors && $errors->has('username'))
                 <p style="color: red">
@@ -37,7 +37,7 @@
             @endif
             <div class="form-group mb-3">
                 <label for="password">Mot de passe</label>
-                <input name="password" type="password" value="{{$old['password']}}" class="form-control" id="password" placeholder="Mot de passe...">
+                <input name="password" type="password" value="{{$old['password'] ?? ''}}" class="form-control" id="password" placeholder="Mot de passe...">
             </div>
             @if ($errors && $errors->has('password'))
                 <p style="color: red">
@@ -46,7 +46,7 @@
             @endif
             <div class="form-group mb-3">
                 <label for="confirm_password">Confirmer Mot de passe</label>
-                <input name="confirm_password" type="password" value="{{$old['confirm_password']}}" class="form-control" id="confirm_password" placeholder="Confirmer Mot de passe...">
+                <input name="confirm_password" type="password" value="{{$old['confirm_password'] ?? ''}}" class="form-control" id="confirm_password" placeholder="Confirmer Mot de passe...">
             </div>
             @if ($errors && $errors->has('confirm_password'))
                 <p style="color: red">

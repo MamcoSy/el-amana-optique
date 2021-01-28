@@ -16,7 +16,7 @@
                         <div class="col-md-12">
                             <div class="form-group mb-3">
                                 <label for="client_name">Nom du client</label>
-                                <input name="client_name" type="text" value="{{$old['client_name']}}" class="form-control" id="client_name" placeholder="Enter le nom du client">
+                                <input name="client_name" type="text" value="{{$old['client_name']  ?? ''}}" class="form-control" id="client_name" placeholder="Enter le nom du client">
                             </div>
                             @if ($errors && $errors->has('client_name'))
                                 <p style="color: red">
@@ -28,7 +28,7 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="left_eye">OG</label>
-                                <input name="left_eye" type="number" step="0.01" value="{{$old['left_eye']}}" class="form-control" id="left_eye">
+                                <input name="left_eye" type="number" step="0.01" value="{{$old['left_eye']  ?? ''}}" class="form-control" id="left_eye">
                             </div>
                             @if ($errors && $errors->has('left_eye'))
                                 <span style="color: red">
@@ -39,7 +39,7 @@
                         <div class="col-md-6">
                             <div class="form-group mb-3">
                                 <label for="right_eye">OD</label>
-                                <input name="right_eye" type="number" step="0.01" value="{{$old['right_eye']}}" class="form-control" id="right_eye">
+                                <input name="right_eye" type="number" step="0.01" value="{{$old['right_eye']  ?? ''}}" class="form-control" id="right_eye">
                             </div>
                             @if ($errors && $errors->has('right_eye'))
                                 <span style="color: red">
@@ -49,8 +49,7 @@
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <textarea name="prescription_content" id="compose-textarea" class="form-control" style="height: 300px">
-                                </textarea>
+                                <textarea name="prescription_content" id="compose-textarea" class="form-control" style="height: 300px">{{$old['prescription_content']  ?? ''}}</textarea>
                             </div>
                             @if ($errors && $errors->has('prescription_content'))
                                 <p style="color: red">
