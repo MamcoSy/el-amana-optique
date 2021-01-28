@@ -56,9 +56,9 @@
             <div class="form-group">
                 <label for="role">Role</label>
                 <select name="role" class="custom-select rounded-0" id="role">
-                    <option value="2" @if($old['role'] == 2) selected @endif >ADMIN</option>
-                    <option value="1" @if($old['role'] == 1) selected @endif >COMPTABLE</option>
-                    <option value="0" @if($old['role'] == 0) selected @endif >CAISSIER</option>
+                    <option value="2" @if($old && $old['role'] == 2) selected @endif >ADMIN</option>
+                    <option value="1" @if($old && $old['role'] == 1) selected @endif >COMPTABLE</option>
+                    <option value="0" @if($old && $old['role'] == 0) selected @endif >CAISSIER</option>
                 </select>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

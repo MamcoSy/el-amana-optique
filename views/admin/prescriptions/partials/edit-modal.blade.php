@@ -30,7 +30,7 @@
                         </div>
                         <div class="form-group mb-3">
                             <label>Ordonnance</label>
-                            <textarea name="prescription_content" class="form-control" rows="3" placeholder="Enter ...">{{$prescription->content}}</textarea>
+                            <textarea name="prescription_content" class="form-control" rows="3" placeholder="Enter ...">{{strip_tags($prescription->content)}}</textarea>
                         </div>
                     </div>
                 </div>
