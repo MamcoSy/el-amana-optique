@@ -4,7 +4,7 @@
     <!-- small box -->
     <div class="small-box bg-warning">
       <div class="inner">
-        <h3>44</h3>     
+        <h3>{{ $invoicesCount }}</h3>     
         <p>Facture(s)</p>
       </div>
       <div class="icon">
@@ -18,7 +18,7 @@
     <!-- small box -->
     <div class="small-box bg-danger">
       <div class="inner">
-        <h3>999 999  MRU</h3>
+        <h3>{{ $user_gain_per_day }}</h3>
         <p>Gain journalier</p>
       </div>
       <div class="icon">

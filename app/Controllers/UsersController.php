@@ -15,7 +15,6 @@ class UsersController
         $users = User::all();
 
         return render('admin.users.list', compact('users', 'title'));
-
     }
 
     public function add()
@@ -30,12 +29,13 @@ class UsersController
             ]);
 
             User::insert([
-                'first_name'    => request('first_name'),
-                'last_name'     => request('last_name'),
-                'username'      => request('username'),
-                'password'      => sha1(request('password')),
-                'role'          => request('role'),
-                'last_time_see' => '',
+                'first_name'      => request('first_name'),
+                'last_name'       => request('last_name'),
+                'username'        => request('username'),
+                'password'        => sha1(request('password')),
+                'role'            => request('role'),
+                'created_at'      => date('Y-m-d'),
+                'last_time_see'   => '',
             ]);
             Session::set('success', true);
 

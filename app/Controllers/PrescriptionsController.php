@@ -30,11 +30,12 @@ class PrescriptionsController
             ]);
 
             Prescriptions::insert([
-                'user_id'     => Session::get('auth_id'),
-                'client_name' => request('client_name'),
-                'left_eye'    => request('left_eye'),
-                'right_eye'   => request('right_eye'),
-                'content'     => request('prescription_content'),
+                'user_id'         => Session::get('auth_id'),
+                'client_name'     => request('client_name'),
+                'left_eye'        => request('left_eye'),
+                'right_eye'       => request('right_eye'),
+                'content'         => request('prescription_content'),
+                'created_at'      => date('Y-m-d'),
             ]);
 
             return redirect(url('/admin-panel/prescriptions'));

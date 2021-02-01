@@ -25,7 +25,7 @@ class InvoicesController
         if ('POST' == Request::method()) {
             Validate::validate([
                 'client_name'     => 'required|min:4|max:195',
-                'doctor_name'     => 'required|min:4|max:195',
+                'doctor_name'     => '|min:0|max:195',
                 'left_eye'        => 'required',
                 'right_eye'       => 'required',
                 'left_eye_price'  => 'required',
