@@ -47,6 +47,7 @@ class InvoicesController
                 'amount_to_pay'    => request('amount_to_pay'),
                 'paid_amount'      => request('paid_amount'),
                 'remaining_amount' => request('amount_to_pay') - request('paid_amount'),
+                'created_at'       => date('Y-m-d'),
             ]);
 
             Session::set('success', true);
