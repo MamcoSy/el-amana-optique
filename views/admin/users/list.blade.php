@@ -12,7 +12,6 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Prénom</th>
                 <th>Nom</th>
                 <th>Uom d'utilisateur</th>
@@ -24,7 +23,6 @@
             <tbody>
               @foreach ($users as $user)
                 <tr>
-                  <td>{{$user->id}}</td>
                   <td>{{$user->first_name}}</td>
                   <td>{{$user->last_name}}</td>
                   <td>{{$user->username}}</td>
