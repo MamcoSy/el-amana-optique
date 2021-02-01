@@ -12,7 +12,6 @@
           <table id="example2" class="table table-bordered table-hover">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Nom du client</th>
                 <th>OG</th>
                 <th>OD</th>
@@ -25,7 +24,6 @@
             <tbody>
               @foreach ($prescriptions as $prescription)
                 <tr>
-                  <td>{{$prescription->id}}</td>
                   <td>{{$prescription->client_name}}</td>
                   <td>{{$prescription->left_eye}}</td>
                   <td>{{$prescription->right_eye}}</td>
