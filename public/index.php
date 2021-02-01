@@ -1,7 +1,7 @@
 <?php
 
 /**
- * PHP LiteFramework
+ * PHP LiteFramework.
  *
  * @author Mamadou Aly Sy <mamco.aly.sy@gmail.com>
  */

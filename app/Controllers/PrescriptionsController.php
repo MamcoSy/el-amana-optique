@@ -16,7 +16,6 @@ class PrescriptionsController
         $prescriptions = Prescriptions::all();
 
         return render('admin.prescriptions.list', compact('prescriptions', 'title'));
-
     }
 
     public function add()
@@ -54,15 +53,6 @@ class PrescriptionsController
 
     public function edit(int $id)
     {
-        if (empty(request('password'))) {
-            Validate::validate([
-                'client_name'          => 'required|min:4|max:195',
-                'left_eye'             => 'required',
-                'right_eye'            => 'required',
-                'prescription_content' => 'required',
-            ]);
-        }
-
         Prescriptions::update($id, [
             'client_name' => request('client_name'),
             'left_eye'    => request('left_eye'),

@@ -9,11 +9,9 @@ Router::middleware('Guest', function () {
 Router::post('/login', 'HomeController@login');
 
 Router::middleware('Auth', function () {
-
     Router::get('/logout', 'HomeController@logout');
 
     Router::group('/admin-panel', function () {
-
         Router::get('/', 'AdminController@index');
         Router::get('/settings', 'ParamController@index');
 
@@ -34,13 +32,13 @@ Router::middleware('Auth', function () {
             Router::any('/add', 'PrescriptionsController@add');
         });
 
-        // invoces management
-        Router::group('/invoces', function () {
-            Router::get('/', 'InvocesController@index');
-            Router::get('/delete/{id}', 'InvocesController@delete');
-            Router::post('/edit/{id}', 'InvocesController@edit');
-            Router::post('/add', 'InvocesController@add');
+        // invoices management
+        Router::group('/invoices', function () {
+            Router::get('/', 'InvoicesController@index');
+            Router::get('/delete/{id}', 'InvoicesController@delete');
+            Router::post('/edit/{id}', 'InvoicesController@edit');
+            Router::any('/add', 'InvoicesController@add');
+            Router::get('/view/{id}', 'InvoicesController@view');
         });
-
     });
 });
