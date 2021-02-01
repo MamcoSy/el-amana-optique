@@ -18,6 +18,9 @@
                   <th>Somme payé</th>
                   <th>Somme restant</th>
                   <th>Date</th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -36,7 +39,7 @@
                   @include('admin.invoices.partials.delete-modal')
                 </tr>
                 @endforeach
-              {{-- </tbody> --}}
+              </tbody>
             </table>
           </div>
           <!-- /.card-body -->
