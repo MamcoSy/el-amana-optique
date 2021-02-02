@@ -33,7 +33,7 @@
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
                 <li class="breadcrumb-item"><a href="{{url('/admin-panel')}}">Panneau d'administration</a></li>
-                <li class="breadcrumb-item active">{{isset($title) && $title === 'Panneau d\'administration' ? '' : $title}}</li>
+                <li class="breadcrumb-item active">{{$title === 'Panneau d\'administration' ? '' : $title}}</li>
               </ol>
             </div>
           </div>

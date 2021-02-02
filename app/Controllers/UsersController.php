@@ -19,6 +19,7 @@ class UsersController
 
     public function add()
     {
+        $title = 'Ajouter dutilisateur';
         if (Request::method() == 'POST') {
             Validate::validate([
                 'first_name'       => 'required|min:2|max:195',
