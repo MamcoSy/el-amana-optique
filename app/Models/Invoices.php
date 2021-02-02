@@ -12,6 +12,14 @@ class Invoices extends Model
 
     public static function all():  ? array
     {
+        if (Session::get('auth_role') == 0) {
+            return Database::table(static::$tableName)
+                ->select()
+                ->where('user_id', '=', Session::get('auth_id'))
+                ->orderBy('created_at', 'desc')
+                ->get();
+        }
+
         return Database::table(static::$tableName)
             ->select()
             ->orderBy('created_at', 'desc')
