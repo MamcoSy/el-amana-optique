@@ -17,7 +17,7 @@ $ sudo chmod 777 storage/cache/
 $ composer install
 ```
 
-Note:
+Note :
 
 > After running these commands, be sure to create the database.
 > Then import the database file **_el-amana.sql_**. After that dont forget to change the database credentials in **_config/database.php_**
