@@ -1,6 +1,6 @@
 # El Amana Optique
 
-## REQUIREMENT
+## REQUIREMENTS
 
 In order to this project to work properly you will need:
 
