@@ -13,24 +13,24 @@
             <div class="form-group row">
               <label for="client_name" class="col-sm-2 col-form-label">Prénom</label>
               <div class="col-sm-10">
-                <input name="client_name" type="text" value="{{$prescription->client_name}}" class="form-control" id="first_name" placeholder="Prénom" >
+                <input name="client_name" type="text" value="{{$prescription->p_client_name}}" class="form-control" id="first_name" placeholder="Prénom" >
               </div>
             </div>
             <div class="form-group row">
               <label for="left_eye" class="col-sm-2 col-form-label">Nom</label>
               <div class="col-sm-10">
-                <input name="left_eye" type="text" value="{{$prescription->left_eye}}" class="form-control" id="first_name" placeholder="oeil gauche" >
+                <input name="left_eye" type="number" value="{{$prescription->p_left_eye}}" class="form-control" id="first_name" placeholder="oeil gauche" >
               </div>
             </div>
             <div class="form-group row">
               <label for="right_eye" class="col-sm-2 col-form-label">Nom d'utilisation</label>
               <div class="col-sm-10">
-                <input name="right_eye" type="text" value="{{$prescription->right_eye}}" class="form-control" id="first_name" placeholder="oeil droit" >
+                <input name="right_eye" type="number" value="{{$prescription->p_right_eye}}" class="form-control" id="first_name" placeholder="oeil droit" >
               </div>
             </div>
             <div class="form-group mb-3">
               <label>Ordonnance</label>
-              <textarea name="prescription_content" class="compose-textarea" class="form-control" style="height: 300px">{{$prescription->content}}</textarea>
+              <textarea name="prescription_content" class="compose-textarea" class="form-control" style="height: 300px">{{$prescription->p_content}}</textarea>
             </div>
           </div>
         </div>

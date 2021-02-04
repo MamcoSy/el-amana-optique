@@ -21,6 +21,7 @@ class PrescriptionsController
     public function add()
     {
         $title = 'Ajouter une ordonnance';
+
         if (Request::method() == 'POST') {
             Validate::validate([
                 'client_name'          => 'required|min:4|max:195',
@@ -30,12 +31,12 @@ class PrescriptionsController
             ]);
 
             Prescriptions::insert([
-                'user_id'         => Session::get('auth_id'),
-                'client_name'     => request('client_name'),
-                'left_eye'        => request('left_eye'),
-                'right_eye'       => request('right_eye'),
-                'content'         => request('prescription_content'),
-                'created_at'      => date('Y-m-d'),
+                'p_user_id'         => Session::get('auth_id'),
+                'p_client_name'     => request('client_name'),
+                'p_left_eye'        => request('left_eye'),
+                'p_right_eye'       => request('right_eye'),
+                'p_content'         => request('prescription_content'),
+                'p_created_at'      => date('Y-m-d'),
             ]);
 
             return redirect(url('/admin-panel/prescriptions'));
@@ -55,10 +56,10 @@ class PrescriptionsController
     public function edit(int $id)
     {
         Prescriptions::update($id, [
-            'client_name' => request('client_name'),
-            'left_eye'    => request('left_eye'),
-            'right_eye'   => request('right_eye'),
-            'content'     => request('prescription_content'),
+            'p_client_name' => request('client_name'),
+            'p_left_eye'    => request('left_eye'),
+            'p_right_eye'   => request('right_eye'),
+            'p_content'     => request('prescription_content'),
         ]);
 
         Session::set('success', true);

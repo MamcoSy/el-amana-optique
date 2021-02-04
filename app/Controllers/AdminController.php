@@ -27,10 +27,10 @@ class AdminController
                 'users_gain_per_day',
             );
         } elseif (Session::get('auth_role') == 1) {
-            //
+            // TODO
         } else {
             $user_gain_per_day = User::gain_per_day();
-            $invoicesCount     = Database::table('invoices')->select()->where('user_id', '=', Session::get('auth_id'))->count();
+            $invoicesCount     = Database::table('invoices')->select()->where('i_user_id', '=', Session::get('auth_id'))->count();
 
             $data = compact(
                 'title',

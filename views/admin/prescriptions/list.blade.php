@@ -24,10 +24,10 @@
             <tbody>
               @foreach ($prescriptions as $prescription)
                 <tr>
-                  <td>{{$prescription->client_name}}</td>
-                  <td>{{$prescription->left_eye}}</td>
-                  <td>{{$prescription->right_eye}}</td>
-                  <td>{{$prescription->created_at}}</td>
+                  <td>{{$prescription->p_client_name}}</td>
+                  <td>{{$prescription->p_left_eye}}</td>
+                  <td>{{$prescription->p_right_eye}}</td>
+                  <td>{{$prescription->p_created_at}}</td>
                   <td> <a href="{{url('/admin-panel/prescriptions/view/'.$prescription->id)}}" class="btn btn-primary"><i class="fas fa-eye"></i></a></td>
                   <td> <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal-{{$prescription->id}}"><i class="fas fa-edit"></i></a></td>
                   <td> <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{$prescription->id}}"><i class="fas fa-trash"></i></a></td>

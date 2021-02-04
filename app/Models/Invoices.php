@@ -15,14 +15,14 @@ class Invoices extends Model
         if (Session::get('auth_role') == 0) {
             return Database::table(static::$tableName)
                 ->select()
-                ->where('user_id', '=', Session::get('auth_id'))
-                ->orderBy('created_at', 'desc')
+                ->where('i_user_id', '=', Session::get('auth_id'))
+                ->orderBy('i_created_at', 'desc')
                 ->get();
         }
 
         return Database::table(static::$tableName)
             ->select()
-            ->orderBy('created_at', 'desc')
+            ->orderBy('i_created_at', 'desc')
             ->get();
     }
 
@@ -36,8 +36,8 @@ class Invoices extends Model
         $gain        = 0;
 
         foreach ($invoices as $invoice) {
-            if ($invoice->created_at == $curent_date) {
-                $gain += $invoice->paid_amount;
+            if ($invoice->i_created_at == $curent_date) {
+                $gain += $invoice->i_paid_amount;
             }
         }
 

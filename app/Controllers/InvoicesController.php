@@ -36,18 +36,18 @@ class InvoicesController
             ]);
 
             Invoices::insert([
-                'user_id'          => Session::get('auth_id'),
-                'client_name'      => request('client_name'),
-                'doctor_name'      => request('doctor_name'),
-                'left_eye'         => request('left_eye'),
-                'right_eye'        => request('right_eye'),
-                'left_eye_price'   => request('left_eye_price'),
-                'right_eye_price'  => request('right_eye_price'),
-                'mount_price'      => request('mount_price'),
-                'amount_to_pay'    => request('amount_to_pay'),
-                'paid_amount'      => request('paid_amount'),
-                'remaining_amount' => request('amount_to_pay') - request('paid_amount'),
-                'created_at'       => date('Y-m-d'),
+                'i_user_id'          => Session::get('auth_id'),
+                'i_client_name'      => request('client_name'),
+                'i_doctor_name'      => request('doctor_name'),
+                'i_left_eye'         => request('left_eye'),
+                'i_right_eye'        => request('right_eye'),
+                'i_left_eye_price'   => request('left_eye_price'),
+                'i_right_eye_price'  => request('right_eye_price'),
+                'mount_price'        => request('mount_price'),
+                'i_amount_to_pay'    => request('amount_to_pay'),
+                'i_paid_amount'      => request('paid_amount'),
+                'i_remaining_amount' => request('amount_to_pay') - request('paid_amount'),
+                'i_created_at'       => date('Y-m-d'),
             ]);
 
             Session::set('success', true);
@@ -61,17 +61,17 @@ class InvoicesController
     public function edit(int $id)
     {
         Invoices::update($id, [
-            'user_id'          => Session::get('auth_id'),
-            'client_name'      => request('client_name'),
-            'doctor_name'      => request('doctor_name'),
-            'left_eye'         => request('left_eye'),
-            'right_eye'        => request('right_eye'),
-            'left_eye_price'   => request('left_eye_price'),
-            'right_eye_price'  => request('right_eye_price'),
-            'mount_price'      => request('mount_price'),
-            'amount_to_pay'    => request('amount_to_pay'),
-            'paid_amount'      => request('paid_amount'),
-            'remaining_amount' => request('amount_to_pay') - request('paid_amount'),
+            'i_user_id'          => Session::get('auth_id'),
+            'i_client_name'      => request('client_name'),
+            'i_doctor_name'      => request('doctor_name'),
+            'i_left_eye'         => request('left_eye'),
+            'i_right_eye'        => request('right_eye'),
+            'i_left_eye_price'   => request('left_eye_price'),
+            'i_right_eye_price'  => request('right_eye_price'),
+            'i_mount_price'      => request('mount_price'),
+            'i_amount_to_pay'    => request('amount_to_pay'),
+            'i_paid_amount'      => request('paid_amount'),
+            'i_remaining_amount' => request('amount_to_pay') - request('paid_amount'),
         ]);
 
         Session::set('success', true);

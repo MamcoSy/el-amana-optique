@@ -17,7 +17,7 @@ class User extends Model
     {
         return Database::table(static::$tableName)
             ->select()
-            ->orderBy('created_at', 'desc')
+            ->orderBy('u_created_at', 'desc')
             ->get();
     }
 
@@ -25,15 +25,15 @@ class User extends Model
     {
         $invoices = Database::table('invoices')
             ->select()
-            ->where('user_id', '=', Session::get('auth_id'))
+            ->where('i_user_id', '=', Session::get('auth_id'))
             ->get();
 
         $curent_date = date('Y-m-d');
         $gain        = 0;
 
         foreach ($invoices as $invoice) {
-            if ($invoice->created_at == $curent_date) {
-                $gain += $invoice->paid_amount;
+            if ($invoice->i_created_at == $curent_date) {
+                $gain += $invoice->i_paid_amount;
             }
         }
 

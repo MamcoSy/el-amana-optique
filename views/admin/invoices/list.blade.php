@@ -27,11 +27,11 @@
                 @foreach ($invoices as $invoice)
                 <tr>
                   <td>{{sprintf('%07d', $invoice->id)}}</td>
-                  <td>{{$invoice->client_name}}</td>
-                  <td>{{$invoice->amount_to_pay}}</td>
-                  <td>{{$invoice->paid_amount}}</td>
-                  <td>{{$invoice->	remaining_amount}}</td>
-                  <td>{{$invoice->created_at}}</td>
+                  <td>{{$invoice->i_client_name}}</td>
+                  <td>{{$invoice->i_amount_to_pay}}</td>
+                  <td>{{$invoice->i_paid_amount}}</td>
+                  <td>{{$invoice->i_remaining_amount}}</td>
+                  <td>{{$invoice->i_created_at}}</td>
                   <td> <a href="{{url('/admin-panel/invoices/view/'.$invoice->id)}}" class="btn btn-primary"><i class="fas fa-eye"></i></a></td>
                   <td> <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#edit-modal-{{$invoice->id}}"><i class="fas fa-edit"></i></a></td>
                   <td> <a href="#" class="btn btn-danger" data-toggle="modal" data-target="#delete-modal-{{$invoice->id}}"><i class="fas fa-trash"></i></a></td>

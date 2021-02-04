@@ -18,17 +18,16 @@ class HomeController
 
     public function login()
     {
-
         Validate::validate([
-            'username' => 'required|min:4|max:195',
+            'username' => 'required|min:2|max:195',
             'password' => 'required|min:4|max:195',
             'remember' => 'in:on',
         ]);
 
         $user = Database::table('users')
             ->select()
-            ->where('username', '=', Request::post('username'))
-            ->where('password', '=', sha1(Request::post('password')))
+            ->where('u_username', '=', Request::post('username'))
+            ->where('u_password', '=', sha1(Request::post('password')))
             ->first();
 
         if (!$user) {
@@ -38,18 +37,17 @@ class HomeController
             return redirect(previous());
         } else {
             Session::set('auth_id', $user->id);
-            Session::set('auth_role', $user->role);
-            Session::set('auth_full_name', $user->first_name . ' ' . $user->last_name);
-            Session::set('auth_last_time_see', $user->last_time_see);
+            Session::set('auth_role', $user->u_role);
+            Session::set('auth_full_name', $user->u_first_name . ' ' . $user->u_last_name);
+            Session::set('auth_last_time_see', $user->u_last_time_see);
 
             return redirect(url('/admin-panel'));
         }
-
     }
 
     public function logout()
     {
-        User::update(session('auth_id'), ['last_time_see' => date('d / m  / Y à H:i:s')]);
+        User::update(session('auth_id'), ['u_last_time_see' => date('d / m  / Y à H:i:s')]);
         Session::destroy();
 
         return redirect(url('/'));
