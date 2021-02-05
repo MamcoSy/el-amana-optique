@@ -6,6 +6,8 @@ class ParamController
 {
     public function index()
     {
-        return render('param.parameters');
+        $title = 'Parametres';
+
+        return render('param.parameters', compact('title'));
     }
 }
