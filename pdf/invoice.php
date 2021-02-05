@@ -88,7 +88,7 @@
           <p>48 00 12 48 - 49 72 61 81</p> -->
         </td>
         <td class="right">
-          <h2 class="ar">ءيادة شاصوا</h2>
+          <h2 class="ar">الأمانة للنظارات</h2>
           <!-- <p class="ar">المراض الءيون</p>
           <p>48 00 12 48 - 49 72 61 81</p> -->
         </td>
@@ -194,11 +194,11 @@
         </td>
         <td>
           <p class="right">
-            <sup>o</sup>C27/C29/C30 <br />
-            Tél: 25042425-22486770-49262624-46396767<br />
+            <sup>o</sup>C27/C29/C30 سوق السلام <br />
+            الهاتف : 25042425-22486770-49262624-46396767<br />
             C.R:65302 - BP:2166<br />
-            Nouakchott Mauritanie<br />
-            E-mail:hamadielkhay@gmail.com
+            انواكشوط - موريتانيا<br />
+            البريد:hamadielkhay@gmail.com
           </p>
         </td>
       </tr>
