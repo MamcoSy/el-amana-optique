@@ -88,7 +88,7 @@
           <p>48 00 12 48 - 49 72 61 81</p> -->
         </td>
         <td class="right">
-          <h2 class="ar">ءيادة شاصوا</h2>
+          <h2 class="ar">الامانة للبصريات</h2>
           <!-- <p class="ar">المراض الءيون</p>
           <p>48 00 12 48 - 49 72 61 81</p> -->
         </td>
@@ -173,8 +173,20 @@
           </p>
         </td>
         <td>
-          <p class="right">
-            Somme payé : <?=$invoice->i_paid_amount?>
+          <p class="">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Somme payé &nbsp;&nbsp;&nbsp;: <?=$invoice->i_paid_amount?> MRU
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="left">
+
+          </p>
+        </td>
+        <td>
+          <p class="">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Somme restant : <?=$invoice->i_remaining_amount?> MRU
           </p>
         </td>
       </tr>

@@ -2,11 +2,12 @@
 
 namespace App\Controllers;
 
+use App\Models\History;
 use App\Models\Invoices;
-use LiteFramework\Globals\Session;
-use LiteFramework\Http\Request;
-use LiteFramework\Validation\Validate;
 use Spipu\Html2Pdf\Html2Pdf;
+use LiteFramework\Http\Request;
+use LiteFramework\Globals\Session;
+use LiteFramework\Validation\Validate;
 
 class InvoicesController
 {
@@ -52,6 +53,12 @@ class InvoicesController
 
             Session::set('success', true);
 
+            History::insert([
+                'h_user_id'    => Session::get('auth_id'),
+                'h_action'     => 'à Ajouter une facture pour ' . request('client_name'),
+                'h_date'       => date('Y-m-d')
+            ]);
+
             return redirect(url('/admin-panel/invoices'));
         }
 
@@ -75,6 +82,14 @@ class InvoicesController
         ]);
 
         Session::set('success', true);
+
+        $invoice = Invoices::find($id);
+
+        History::insert([
+            'h_user_id'    => Session::get('auth_id'),
+            'h_action'     => 'à Modifier la facture ' . $invoice->id,
+            'h_date'       => date('Y-m-d')
+        ]);
 
         return redirect(previous());
     }

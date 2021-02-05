@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\History;
 use Spipu\Html2Pdf\Html2Pdf;
 use App\Models\Prescriptions;
 use LiteFramework\Http\Request;
@@ -39,6 +40,12 @@ class PrescriptionsController
                 'p_created_at'      => date('Y-m-d'),
             ]);
 
+            History::insert([
+                'h_user_id'    => Session::get('auth_id'),
+                'h_action'     => 'à ajouter une ordonnace pour' . request('client_name'),
+                'h_date'       => date('Y-m-d')
+            ]);
+
             return redirect(url('/admin-panel/prescriptions'));
         }
 
@@ -47,8 +54,15 @@ class PrescriptionsController
 
     public function delete(int $id)
     {
+        $prescription = Prescriptions::find($id);
         Prescriptions::delete($id);
         Session::set('success', true);
+
+        History::insert([
+            'h_user_id'    => Session::get('auth_id'),
+            'h_action'     => 'à Supprimer l\'ordonnace ' . $prescription->id,
+            'h_date'       => date('Y-m-d')
+        ]);
 
         return redirect(previous());
     }
@@ -63,6 +77,12 @@ class PrescriptionsController
         ]);
 
         Session::set('success', true);
+
+        History::insert([
+            'h_user_id'    => Session::get('auth_id'),
+            'h_action'     => 'à Modiifer l\'ordonnace de' . request('client_name'),
+            'h_date'       => date('Y-m-d')
+        ]);
 
         return redirect(previous());
     }
