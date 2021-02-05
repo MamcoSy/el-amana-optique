@@ -52,7 +52,7 @@ class UsersController
             return redirect(url('/admin-panel/users'));
         }
 
-        return render('admin.users.add');
+        return render('admin.users.add', compact('title'));
     }
 
     public function delete(int $id)
@@ -63,7 +63,7 @@ class UsersController
 
         History::insert([
             'h_user_id'    => Session::get('auth_id'),
-            'h_action'     => 'à supprimer l\'utilisateur ' . $user->first_name . ' ' . $user->last_name,
+            'h_action'     => 'à supprimer l\'utilisateur ' . $user->u_first_name . ' ' . $user->u_last_name,
             'h_date'       => date('Y-m-d')
         ]);
 
@@ -91,11 +91,9 @@ class UsersController
 
         Session::set('success', true);
 
-        $user = User::find($id);
-
         History::insert([
             'h_user_id'    => Session::get('auth_id'),
-            'h_action'     => 'à Modifier l\'utilisateur ' . $user->first_name . ' ' . $user->last_name,
+            'h_action'     => 'à Modifier l\'utilisateur ' . request('first_name') . ' ' . request('last_name'),
             'h_date'       => date('Y-m-d')
         ]);
 
