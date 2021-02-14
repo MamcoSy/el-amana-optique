@@ -173,8 +173,20 @@
           </p>
         </td>
         <td>
-          <p class="right">
-            Somme payé : <?=$invoice->i_paid_amount?>
+          <p class="">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Somme payé &nbsp;&nbsp;&nbsp;: <?=$invoice->i_paid_amount?> MRU
+          </p>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p class="left">
+
+          </p>
+        </td>
+        <td>
+          <p class="">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Somme restant : <?=$invoice->i_remaining_amount?> MRU
           </p>
         </td>
       </tr>
