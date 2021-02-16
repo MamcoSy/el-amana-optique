@@ -205,12 +205,12 @@
           </p>
         </td>
         <td>
-          <p class="right">
-            <sup>o</sup>C27/C29/C30 سوق السلام <br />
+          <p class="right ar">
+            <sup>o</sup>C27/C29/C30  : سوق السلام <br />
             الهاتف : 25042425-22486770-49262624-46396767<br />
             C.R:65302 - BP:2166<br />
             انواكشوط - موريتانيا<br />
-            البريد:hamadielkhay@gmail.com
+            <span dir="ltr">hamadielkhay@gmail.com </span> البريد :
           </p>
         </td>
       </tr>
