@@ -4,7 +4,6 @@
     <div class="small-box bg-info">
       <div class="inner">
         <h3>{{ $userCount }}</h3>
-        
         <p>Utilisateur(s)</p>
       </div>
       <div class="icon">
@@ -17,7 +16,7 @@
     <!-- small box -->
     <div class="small-box bg-success">
       <div class="inner">
-        <h3>{{ $prescpriptionsCount }}</h3>
+        <h3>{{ $prescriptionsCount }}</h3>
         <p>Ordonance(s)</p>
       </div>
       <div class="icon">

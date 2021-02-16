@@ -11,18 +11,18 @@ class AdminController
 {
     public function index()
     {
-        $title               = "Panneau d'administration";
+        $title = "Panneau d'administration";
 
         if (Session::get('auth_role') == 2) {
             $userCount           = Database::table('users')->select()->count();
-            $prescpriptionsCount = Database::table('prescriptions')->select()->count();
+            $prescriptionsCount  = Database::table('prescriptions')->select()->count();
             $invoicesCount       = Database::table('invoices')->select()->count();
             $users_gain_per_day  = Invoices::gain_per_day();
 
             $data = compact(
                 'userCount',
                 'title',
-                'prescpriptionsCount',
+                'prescriptionsCount',
                 'invoicesCount',
                 'users_gain_per_day',
             );
