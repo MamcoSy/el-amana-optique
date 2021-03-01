@@ -8,6 +8,6 @@ class ParamController
     {
         $title = 'Parametres';
 
-        return render('param.parameters', compact('title'));
+        return render( 'param.parameters', compact( 'title' ) );
     }
 }

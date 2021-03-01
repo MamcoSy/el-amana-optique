@@ -13,11 +13,20 @@ class AdminController
     {
         $title = "Panneau d'administration";
 
-        if (Session::get('auth_role') == 2) {
-            $userCount           = Database::table('users')->select()->count();
-            $prescriptionsCount  = Database::table('prescriptions')->select()->count();
-            $invoicesCount       = Database::table('invoices')->select()->count();
-            $users_gain_per_day  = Invoices::gain_per_day();
+        if ( Session::get( 'auth_role' ) == 2 ) {
+            $userCount = Database::table( 'users' )
+                ->select()
+                ->count()
+            ;
+            $prescriptionsCount = Database::table( 'prescriptions' )
+                ->select()
+                ->count()
+            ;
+            $invoicesCount = Database::table( 'invoices' )
+                ->select()
+                ->count()
+            ;
+            $users_gain_per_day = Invoices::gain_per_day();
 
             $data = compact(
                 'userCount',
@@ -26,11 +35,15 @@ class AdminController
                 'invoicesCount',
                 'users_gain_per_day',
             );
-        } elseif (Session::get('auth_role') == 1) {
+        } elseif ( Session::get( 'auth_role' ) == 1 ) {
             // TODO
         } else {
             $user_gain_per_day = User::gain_per_day();
-            $invoicesCount     = Database::table('invoices')->select()->where('i_user_id', '=', Session::get('auth_id'))->count();
+            $invoicesCount     = Database::table( 'invoices' )
+                ->select()
+                ->where( 'i_user_id', '=', Session::get( 'auth_id' ) )
+                ->count()
+            ;
 
             $data = compact(
                 'title',
@@ -39,13 +52,14 @@ class AdminController
             );
         }
 
-        return render('admin.dashboard', $data);
+        return render( 'admin.dashboard', $data );
     }
 
     public function users()
     {
         $users = User::all();
 
-        return render('admin.users', compact('users'));
+        return render( 'admin.users', compact( 'users' ) );
     }
+
 }
