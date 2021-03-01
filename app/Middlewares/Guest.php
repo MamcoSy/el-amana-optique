@@ -6,7 +6,7 @@ use LiteFramework\Globals\Session;
 
 class Guest
 {
-    public function handle()
+    public static function handle()
     {
         if (Session::has('auth_id')) {
             return redirect(url('/admin-panel'));
