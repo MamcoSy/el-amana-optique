@@ -28,11 +28,14 @@ class HomeController
             ->select()
             ->where( 'u_username', '=', Request::post( 'username' ) )
             ->where( 'u_password', '=', sha1( Request::post( 'password' ) ) )
-            ->first();
+            ->first()
+        ;
 
         if ( ! $user ) {
-            Session::set( 'message',
-                'nom d\'utilisateur ou mot de passe incorrect.' );
+            Session::set(
+                'message',
+                'nom d\'utilisateur ou mot de passe incorrect.'
+            );
             Session::set( 'old', Request::all() );
 
             return redirect( previous() );
@@ -52,8 +55,10 @@ class HomeController
 
     public function logout()
     {
-        User::update( session( 'auth_id' ), ['u_last_time_see' =>
-            date( 'd / m  / Y à H:i:s' )] );
+        User::update(
+            session( 'auth_id' ),
+            ['u_last_time_see' => date( 'd / m  / Y à H:i:s' )]
+        );
         Session::destroy();
 
         return redirect( url( '/' ) );
