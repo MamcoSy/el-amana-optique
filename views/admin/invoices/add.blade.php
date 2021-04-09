@@ -6,7 +6,13 @@
 
 @section('page-content')
   <div class="row">
+    
     <div class="col-md-12">
+      @if (session('message'))
+        <div class="alert alert-danger">
+          <p>{{flash('message')}}</p>
+        </div>
+      @endif
       <div class="card card-primary">
 
         <div class="card-header">
@@ -100,15 +106,15 @@
                 </span>
                 @endif
               </div>
-              {{-- amount to pay input  --}}
+              {{-- frame price input  --}}
               <div class="col-md-4">
                 <div class="form-group mb-3">
-                  <label for="amount_to_pay">Somme a payé</label>
-                  <input name="amount_to_pay" type="number" value="{{$old['amount_to_pay']  ?? ''}}" class="form-control" id="amount_to_pay">
+                  <label for="frame_price">Prix du Cadre</label>
+                  <input name="frame_price" type="number" value="{{$old['frame_price']  ?? ''}}" class="form-control" id="frame_price">
                 </div>
-                @if ($errors && $errors->has('amount_to_pay'))
+                @if ($errors && $errors->has('frame_price'))
                 <span style="color: red">
-                  {{$errors->first('amount_to_pay')}}
+                  {{$errors->first('frame_price')}}
                 </span>
                 @endif
               </div>
